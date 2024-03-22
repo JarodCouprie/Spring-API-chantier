@@ -1,5 +1,8 @@
 package edu.jcpe.api.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import edu.jcpe.api.view.ChantierView;
+import edu.jcpe.api.view.OperationView;
 import jakarta.persistence.*;
 import jdk.jshell.execution.Util;
 import lombok.Getter;
@@ -15,9 +18,11 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView({ChantierView.class, OperationView.class})
     protected Integer id;
 
     @Column(unique = true, length = 50)
+    @JsonView({ChantierView.class, OperationView.class})
     protected String pseudo;
     protected String password;
 

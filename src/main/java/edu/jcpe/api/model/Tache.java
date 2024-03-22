@@ -1,5 +1,7 @@
 package edu.jcpe.api.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import edu.jcpe.api.view.OperationView;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,11 +16,14 @@ import java.util.List;
 public class Tache {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(OperationView.class)
     protected Integer id;
 
     @Length(min = 3, max = 50, message = "Le nom doit être compris entre 3 et 50 caractères")
+    @JsonView(OperationView.class)
     protected String name;
 
+    @JsonView(OperationView.class)
     protected int time;
 
     @OneToMany(mappedBy = "taskToDo")

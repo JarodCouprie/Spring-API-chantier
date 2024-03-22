@@ -20,11 +20,14 @@ public class AppUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-//        if (user.isAdmin()) {
-//            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
-//        }
+        if (user.getRole().getDesignation().equals("administrateur")) {
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+        if (user.getRole().getDesignation().equals("client")) {
+            return List.of(new SimpleGrantedAuthority("ROLE_CLIENT"));
+        }
 
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_WORKER"));
     }
 
     @Override
