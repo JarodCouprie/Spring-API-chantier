@@ -3,6 +3,7 @@ package edu.jcpe.api.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import edu.jcpe.api.view.OperationView;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -24,6 +25,7 @@ public class Tache {
     protected String name;
 
     @JsonView(OperationView.class)
+    @Min(value = 1, message = "Le temps doit être au minimum d'une minute")
     protected int time;
 
     @OneToMany(mappedBy = "taskToDo")
