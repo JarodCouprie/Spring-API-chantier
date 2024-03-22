@@ -12,7 +12,7 @@ VALUES ("admin", "$2a$12$Nvc681i40b3DdF1zV/h9vuN/RAbmponV9cRj5cfkP2Pn0RkBgaDw2",
 
 INSERT INTO chantier(name, address, owner_id, leader_id)
 VALUES ("Résidence des étoiles", "76 Rue de l'univers", 2, 1),
-       ("Maison des roses", "76 Rue du jardin", 2, 1);
+       ("Maison des roses", "76 Rue du jardin", 2, 3);
 
 INSERT INTO tache(time, name)
 VALUES (10, "balayer"),
